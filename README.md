@@ -56,6 +56,25 @@ One deliberate deviation from the brief: the muted text colour is `#7A859F` rath
 
 Every push to the main branch redeploys; pull requests get preview URLs.
 
+### DNS at GoDaddy (where himasriallu.com is registered)
+
+Keep GoDaddy as the registrar and DNS host; only the records change.
+
+1. Sign in at godaddy.com → **My Products** → next to `himasriallu.com` choose **DNS**
+   (or **Manage DNS**).
+2. **Apex record:** find the existing **A** record with name `@` (GoDaddy's default usually
+   points to "Parked"). Edit it so the value is the IP Vercel shows for `himasriallu.com`.
+   Delete any other `A` or `AAAA` records named `@`, or traffic will be split between Vercel and GoDaddy.
+3. **www record:** find the **CNAME** with name `www` (GoDaddy's default points to `@`). Edit it so
+   the value is the hostname Vercel shows for `www.himasriallu.com`.
+4. Check **Forwarding** on the same page (or under Domain Settings) and remove any domain
+   forwarding; it overrides these records.
+5. Save, then go back to Vercel → Settings → Domains. Changes usually show up within minutes to
+   an hour (GoDaddy's default TTL is 1 hour); Vercel then marks both domains **Valid Configuration**
+   and issues HTTPS certificates.
+
+If you set up GoDaddy email or other services on this domain, leave their `MX`/`TXT` records alone.
+
 ## SEO
 
 - Title "Himasri Allu | AI Engineer", description from the hero summary

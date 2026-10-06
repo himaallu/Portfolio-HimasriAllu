@@ -67,4 +67,4 @@ Captions are also the alt text, so write them for someone who can't see the phot
 ## Deployment
 
 - [ ] Import the repo into Vercel and deploy
-- [ ] Add `himasriallu.com` and `www.himasriallu.com` to the Vercel project and set the DNS records Vercel shows (see README)
+- [ ] Add `himasriallu.com` and `www.himasriallu.com` to the Vercel project, then update the `@` A record and `www` CNAME in GoDaddy DNS (see README)
