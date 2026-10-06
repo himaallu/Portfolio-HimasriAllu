@@ -131,6 +131,8 @@ export type Certification = {
   issuer: string;
   date: string;
   verify: string | null;
+  /** AWS validation number, shown so a reader can check it at the verify link. */
+  credentialId: string | null;
   badge: string;
 };
 

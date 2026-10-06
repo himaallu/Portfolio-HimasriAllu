@@ -77,7 +77,7 @@ function EducationCard({ edu, logo, photos }: { edu: Education; logo: string | n
       <div className="flex items-start gap-4">
         <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[12px] border border-line bg-card">
           {logo ? (
-            <Image src={logo} alt={`${edu.school} logo`} fill sizes="48px" className="logo-mono object-contain p-2" />
+            <Image src={logo} alt={`${edu.school} logo`} fill sizes="48px" className="logo-mono object-cover" />
           ) : (
             <span className="font-mono text-[0.625rem] font-semibold text-secondary">{edu.short.split(" ")[0]}</span>
           )}

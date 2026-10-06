@@ -125,7 +125,7 @@ function RotatingRole({ roles }: { roles: string[] }) {
 
   return (
     <p className="flex items-center gap-3 font-display text-[clamp(1.25rem,2.6vw,1.875rem)] font-medium tracking-display text-primary">
-      <span aria-hidden className="h-px w-8 bg-gradient sm:w-12" />
+      <span aria-hidden className="h-px w-8 bg-line-strong sm:w-12" />
       <span className="sr-only">{roles.join(", ")}</span>
       <span aria-hidden className="relative inline-grid overflow-hidden">
         <span className="invisible col-start-1 row-start-1">{longest}</span>
@@ -149,11 +149,9 @@ function RotatingRole({ roles }: { roles: string[] }) {
 function Portrait({ src, name }: { src: string | null; name: string }) {
   return (
     <div className="relative aspect-[4/5]">
-      {/* Faint glowing ring in the accent gradient */}
-      <div aria-hidden className="absolute -inset-5 rounded-[44px] opacity-35 blur-2xl">
-        <div className="ring-spin absolute inset-0 rounded-[44px]" style={{ background: "conic-gradient(from 0deg, var(--color-blue), var(--color-purple), var(--color-pink), var(--color-blue))" }} />
-      </div>
-      <div aria-hidden className="absolute -inset-px rounded-[33px] bg-gradient opacity-70" />
+      {/* Quiet frame: a soft halo and a hairline border */}
+      <div aria-hidden className="absolute -inset-6 rounded-[44px] bg-blue opacity-[0.06] blur-2xl" />
+      <div aria-hidden className="absolute -inset-px rounded-[33px] bg-linear-to-b from-white/25 to-white/5" />
       <div className="relative h-full overflow-hidden rounded-[32px] bg-card">
         {src ? (
           <Image
@@ -176,9 +174,8 @@ function Portrait({ src, name }: { src: string | null; name: string }) {
 function HeroBackground() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      <div className="blob blob-a left-[-10%] top-[-10%] h-[55vmax] w-[55vmax] bg-blue opacity-[0.13]" />
-      <div className="blob blob-b right-[-15%] top-[10%] h-[50vmax] w-[50vmax] bg-purple opacity-[0.12]" />
-      <div className="blob blob-c bottom-[-25%] left-[25%] h-[45vmax] w-[45vmax] bg-pink opacity-[0.07]" />
+      <div className="blob blob-a left-[-10%] top-[-10%] h-[55vmax] w-[55vmax] bg-blue opacity-[0.07]" />
+      <div className="blob blob-b right-[-15%] top-[10%] h-[50vmax] w-[50vmax] bg-purple opacity-[0.05]" />
       <div className="dot-grid absolute inset-0" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-base" />
     </div>

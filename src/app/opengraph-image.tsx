@@ -18,7 +18,7 @@ export default function OgImage() {
           padding: "72px 80px",
           background: "#070B14",
           backgroundImage:
-            "radial-gradient(circle at 15% 10%, rgba(76,141,255,0.28), transparent 45%), radial-gradient(circle at 90% 30%, rgba(167,123,255,0.25), transparent 45%), radial-gradient(circle at 60% 110%, rgba(255,111,168,0.18), transparent 45%)",
+            "radial-gradient(circle at 15% 10%, rgba(142,168,216,0.14), transparent 50%)",
           color: "#F4F6FB",
           fontFamily: "sans-serif",
         }}
@@ -34,7 +34,7 @@ export default function OgImage() {
               fontWeight: 700,
               letterSpacing: -4,
               lineHeight: 1,
-              backgroundImage: "linear-gradient(100deg, #4C8DFF, #A77BFF 50%, #FF6FA8)",
+              backgroundImage: "linear-gradient(100deg, #F4F6FB, #B9C1D4)",
               backgroundClip: "text",
               color: "transparent",
             }}

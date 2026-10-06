@@ -10,17 +10,11 @@ import { Reveal } from "../Reveal";
 import { SectionHeader } from "../SectionHeader";
 
 export function Research() {
-  const shown = papers.filter((p) => p.title || p.venue);
-  const [lead, ...rest] = shown;
   const [count, ...words] = researchHeadline.split(" ");
-  // e.g. "1 IEEE conference · 1 International journal · 2 National journal"
-  const kinds = Object.entries(
-    papers.reduce<Record<string, number>>((acc, p) => ({ ...acc, [p.venueType]: (acc[p.venueType] ?? 0) + 1 }), {}),
-  );
   return (
     <section id="research" aria-labelledby="research-title" className="section-gap">
       <div className="container-content">
-        <SectionHeader id="research-title" number="05" label="Research" title="Published, and peer-reviewed." line="Four papers, one of them an IEEE Best Paper Award winner." />
+        <SectionHeader id="research-title" number="05" label="Research" title="Published, and peer-reviewed." line="Selected papers, including an IEEE Best Paper Award winner." />
 
         <div className="grid gap-5 lg:grid-cols-3">
           <Reveal className="lg:row-span-1">
@@ -31,23 +25,14 @@ export function Research() {
                 <span className="text-gradient block font-display text-[5rem] font-bold leading-none tracking-display">{count}</span>
                 <span className="mt-2 block font-display text-xl font-medium tracking-display text-primary">{words.join(" ")}</span>
               </p>
-              <ul className="relative mt-5 flex flex-wrap gap-1.5">
-                {kinds.map(([k, n]) => (
-                  <li key={k} className="chip-accent rounded-chip px-2.5 py-1 font-mono text-[0.75rem]">
-                    {n} × {k}
-                  </li>
-                ))}
-              </ul>
+              <p className="relative text-[0.875rem] leading-relaxed text-secondary">
+                IEEE conference paper, plus international and national journal papers.
+              </p>
             </GlowCard>
           </Reveal>
-          {lead && (
-            <Reveal delay={0.06} className="lg:col-span-2">
-              <PaperCard paper={lead} featured />
-            </Reveal>
-          )}
-          {rest.map((p, i) => (
-            <Reveal key={p.id} delay={0.06 * (i + 1)}>
-              <PaperCard paper={p} />
+          {papers.map((p, i) => (
+            <Reveal key={p.id} delay={0.06 * (i + 1)} className={i === 0 ? "lg:col-span-2" : "lg:col-span-3"}>
+              <PaperCard paper={p} featured={i === 0} />
             </Reveal>
           ))}
         </div>

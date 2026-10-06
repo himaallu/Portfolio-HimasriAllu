@@ -15,7 +15,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-chip px-5 py-3 text-[0.9375rem] font-medium leading-none transition-colors duration-300 whitespace-nowrap";
 
 export const buttonStyles = {
-  primary: cn(base, "btn-primary text-white"),
+  primary: cn(base, "btn-primary"),
   secondary: cn(base, "border border-line-strong bg-white/[0.02] text-primary hover:border-white/30 hover:bg-white/[0.05]"),
   ghost: cn(base, "px-3 text-secondary hover:text-primary"),
 };

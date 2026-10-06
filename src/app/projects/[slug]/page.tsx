@@ -50,7 +50,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
     <article style={accentVar(p.accent)} className="pb-[var(--section-gap)]">
       <header className="relative overflow-hidden pt-32 md:pt-40">
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-          <div className="blob blob-a left-[-10%] top-[-20%] h-[50vmax] w-[50vmax] opacity-[0.12]" style={{ background: "var(--accent)" }} />
+          <div className="blob blob-a left-[-10%] top-[-20%] h-[50vmax] w-[50vmax] opacity-[0.05]" style={{ background: "var(--accent)" }} />
           <div className="dot-grid absolute inset-0" />
         </div>
         <div className="container-content">

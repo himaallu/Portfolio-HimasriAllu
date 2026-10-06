@@ -17,8 +17,8 @@ export function Contact({ resumes }: { resumes: Resume[] }) {
       <div className="container-content">
         <div className="relative overflow-hidden rounded-[28px] border border-line bg-raised px-6 py-14 md:px-14 md:py-20">
           <div aria-hidden className="pointer-events-none absolute inset-0">
-            <div className="blob blob-a -right-[10%] -top-[40%] h-[420px] w-[420px] bg-purple opacity-20" />
-            <div className="blob blob-b -bottom-[50%] left-[10%] h-[380px] w-[380px] bg-blue opacity-15" />
+            <div className="blob blob-a -right-[10%] -top-[40%] h-[420px] w-[420px] bg-blue opacity-[0.07]" />
+            <div className="blob blob-b -bottom-[50%] left-[10%] h-[380px] w-[380px] bg-purple opacity-[0.05]" />
             <div className="dot-grid absolute inset-0" />
           </div>
           <div className="relative">

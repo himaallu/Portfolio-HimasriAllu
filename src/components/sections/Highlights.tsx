@@ -120,8 +120,20 @@ export function Certifications() {
                     <p className="mt-1.5 flex items-center gap-1.5 text-[0.875rem] text-muted">
                       <BadgeCheck size={14} aria-hidden /> {c.date}
                     </p>
+                    {c.credentialId && (
+                      <p className="mt-2 break-all font-mono text-[0.6875rem] leading-snug text-muted">
+                        <span className="sr-only">Validation number: </span>
+                        {c.credentialId}
+                      </p>
+                    )}
                     {c.verify && (
-                      <a href={c.verify} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-[0.875rem] text-primary hover:text-[var(--accent)]">
+                      <a
+                        href={c.verify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Verify ${c.name} on aws.amazon.com (opens in a new tab)`}
+                        className="mt-3 inline-flex items-center gap-1 text-[0.875rem] text-primary hover:text-[var(--accent)]"
+                      >
                         Verify <ExternalIcon size={14} />
                       </a>
                     )}
