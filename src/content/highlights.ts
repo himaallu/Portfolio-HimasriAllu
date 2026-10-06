@@ -41,15 +41,17 @@ export const certifications: Certification[] = [
     short: "Solutions Architect – Associate",
     issuer: "Amazon Web Services",
     date: "Feb 2024",
-    verify: null, // TODO: Credly verify link
+    verify: "https://aws.amazon.com/verification",
+    credentialId: "0279b8392e2f41dc8c2fbbd5e391e555",
     badge: "aws-solutions-architect-associate",
   },
   {
     name: "AWS Certified Cloud Practitioner",
     short: "Cloud Practitioner",
     issuer: "Amazon Web Services",
-    date: "Jun 2024",
-    verify: null, // TODO: Credly verify link
+    date: "Jan 2024",
+    verify: "https://aws.amazon.com/verification",
+    credentialId: "206268ba172c4fb9979dbb2dadadffbf",
     badge: "aws-cloud-practitioner",
   },
 ];

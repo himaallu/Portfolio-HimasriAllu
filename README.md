@@ -38,8 +38,16 @@ Defined once in `src/app/globals.css` (`@theme`), and used through Tailwind util
 (`bg-raised`, `text-secondary`, `rounded-card`, `text-hero`, …). Accent colours are applied per
 card through a `--accent` CSS variable (`src/lib/accent.ts`).
 
-One deliberate deviation from the brief: the muted text colour is `#7A859F` rather than
-`#6B7690`, because the original fails WCAG AA contrast (4.5:1) on the card surfaces.
+Deliberate deviations from the brief:
+
+- The palette is calmer than the brief: the six section accents are desaturated, the signature
+  gradient is a soft silver instead of blue → purple → pink, the primary button is solid off-white,
+  and the hero/contact background glows are faint. Change the accent hex values in `@theme` to
+  dial colour back up.
+- The muted text colour is `#7A859F` rather than `#6B7690`, because the original fails WCAG AA
+  contrast (4.5:1) on the card surfaces.
+- Company logos are shown greyscale (not white silhouettes) at rest, since the supplied logos sit
+  on their own coloured tiles. Square logos with their own background work best.
 
 ## Deploying to Vercel with himasriallu.com
 

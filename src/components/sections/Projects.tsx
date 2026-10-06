@@ -53,7 +53,7 @@ function Featured({ project: p, flip, cover }: { project: FeaturedProject; flip:
   return (
     <article className="group grid items-center gap-10 lg:grid-cols-2 lg:gap-16" style={accentVar(p.accent)} aria-labelledby={`p-${p.slug}`}>
       <Reveal className={cn("relative", flip && "lg:order-last")}>
-        <div aria-hidden className="absolute -inset-8 -z-10 rounded-[40px] opacity-40 blur-3xl" style={{ background: "radial-gradient(closest-side, color-mix(in srgb, var(--accent) 35%, transparent), transparent)" }} />
+        <div aria-hidden className="absolute -inset-8 -z-10 rounded-[40px] opacity-15 blur-3xl" style={{ background: "radial-gradient(closest-side, color-mix(in srgb, var(--accent) 35%, transparent), transparent)" }} />
         <Link
           href={`/projects/${p.slug}`}
           aria-label={`${p.name} case study`}

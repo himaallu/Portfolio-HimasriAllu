@@ -38,13 +38,13 @@ function RoleCard({ role, logo }: { role: Role; logo: string | null }) {
     <GlowCard accent={role.accent} as="article" id={`exp-${role.id}`} className="scroll-mt-28 p-6 md:p-8">
       <div className="grid gap-6 md:grid-cols-[200px_minmax(0,1fr)] md:gap-10">
         <div className="flex items-center gap-4 md:flex-col md:items-start">
-          <div className="relative flex h-14 w-[120px] shrink-0 items-center md:h-16 md:w-[160px]">
-            {logo ? (
-              <Image src={logo} alt={`${role.company} logo`} fill sizes="160px" className="logo-mono object-contain object-left" />
-            ) : (
-              <span className="font-display text-xl font-semibold tracking-display text-primary">{role.company}</span>
-            )}
-          </div>
+          {logo ? (
+            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-[14px] border border-line md:h-16 md:w-16">
+              <Image src={logo} alt={`${role.company} logo`} fill sizes="64px" className="logo-mono object-cover" />
+            </div>
+          ) : (
+            <span className="font-display text-xl font-semibold tracking-display text-primary">{role.company}</span>
+          )}
           <div className="md:mt-1">
             <p className="font-label !text-[0.6875rem]" style={{ color: "var(--accent)" }}>
               {role.dates}
