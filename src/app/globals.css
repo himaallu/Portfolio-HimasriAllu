@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens (brief §3.2). Defined once; components use the
+   Tailwind utilities these generate (bg-base, text-secondary, …).
+   ------------------------------------------------------------------ */
+@theme {
+  --color-*: initial;
+
+  --color-base: #070b14;
+  --color-raised: #0c1220;
+  --color-card: #111a2e;
+
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.14);
+
+  --color-primary: #f4f6fb;
+  --color-secondary: #a7b0c4;
+  /* Brief value #6b7690 fails WCAG AA on the card surfaces; nudged to pass 4.5:1 on all three. */
+  --color-muted: #7a859f;
+
+  --color-blue: #4c8dff;
+  --color-green: #3ddc97;
+  --color-amber: #ffb547;
+  --color-purple: #a77bff;
+  --color-pink: #ff6fa8;
+  --color-royal: #5b6cff;
+  --color-white: #f4f6fb;
+
+  --color-transparent: transparent;
+  --color-black: #000;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-card: 20px;
+  --radius-chip: 12px;
+  --radius-pill: 999px;
+
+  --text-hero: clamp(3rem, 9vw, 7rem);
+  --text-section: clamp(2rem, 4vw, 3.25rem);
+  --text-title: 1.375rem;
+  --text-body: 1.0625rem;
+
+  --container-content: 1200px;
+  --container-prose: 65ch;
+
+  --tracking-display: -0.02em;
+  --tracking-label: 0.14em;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --gradient-signature: linear-gradient(100deg, var(--color-blue) 0%, var(--color-purple) 50%, var(--color-pink) 100%);
+  --section-gap: 72px;
+  --nav-h: 76px;
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-gap: 120px;
+  }
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+  background: var(--color-base);
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-purple) 45%, transparent);
+  color: var(--color-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ------------------------------------------------------------------
+   Reusable primitives
+   ------------------------------------------------------------------ */
+@utility text-gradient {
+  background-image: var(--gradient-signature);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hero name: one diagonal gradient across both lines, so the second line picks up purple and pink. */
+.hero-name {
+  background-image: linear-gradient(115deg, var(--color-blue) 10%, var(--color-purple) 55%, var(--color-pink) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient {
+  background-image: var(--gradient-signature);
+}
+
+@utility font-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility container-content {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (min-width: 768px) {
+    padding-inline: 32px;
+  }
+}
+
+@utility section-gap {
+  padding-block: calc(var(--section-gap) / 2);
+}
+
+/* Card surface: raised, 1px border, soft inner highlight on the top edge. */
+@utility surface {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 40%),
+    var(--color-raised);
+  border: 1px solid var(--color-line);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-card);
+}
+
+/* Chip with accent text and a faint accent tint. Requires --accent on an ancestor. */
+@utility chip-accent {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+/* Fine dot texture */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+}
+
+/* Hero drifting gradient mesh */
+@keyframes drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(8%, 6%, 0) scale(1.08); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-7%, -5%, 0) scale(1.12); }
+}
+@keyframes drift-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  50% { transform: translate3d(5%, -8%, 0) scale(0.95); }
+}
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+.blob-a { animation: drift-a 26s ease-in-out infinite; }
+.blob-b { animation: drift-b 32s ease-in-out infinite; }
+.blob-c { animation: drift-c 38s ease-in-out infinite; }
+
+/* Hero entry sequence, CSS-driven so it runs before hydration. */
+@keyframes enter {
+  /* 0.01, not 0: fully transparent elements are not LCP candidates. */
+  from { opacity: 0.01; transform: translate3d(0, 22px, 0); }
+  to { opacity: 1; transform: none; }
+}
+[data-enter] {
+  animation: enter 0.7s var(--ease-out-soft) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-enter] { animation-name: none; }
+}
+
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+.ring-spin { animation: ring-spin 18s linear infinite; }
+
+@keyframes cue {
+  0% { transform: translateY(0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+.cue-dot { animation: cue 2.2s var(--ease-out-soft) infinite; }
+
+/* Consistent photo treatment: slight desaturation + dark overlay at rest, full colour on hover. */
+.photo {
+  filter: saturate(0.7) brightness(0.92);
+  transition: filter 0.5s var(--ease-out-soft), transform 0.7s var(--ease-out-soft);
+}
+.group:hover .photo,
+.group:focus-visible .photo {
+  filter: none;
+  transform: scale(1.03);
+}
+.photo-overlay {
+  background: linear-gradient(180deg, transparent 45%, rgba(7, 11, 20, 0.75));
+  transition: opacity 0.5s var(--ease-out-soft);
+}
+.group:hover .photo-overlay,
+.group:focus-visible .photo-overlay {
+  opacity: 0.35;
+}
+
+/* Logos: monochrome white at rest, full colour on hover. */
+.logo-mono {
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 0.85;
+  transition: filter 0.4s var(--ease-out-soft), opacity 0.4s;
+}
+.group:hover .logo-mono,
+.group:focus-within .logo-mono {
+  filter: none;
+  opacity: 1;
+}
+
+/* Glow card: border takes accent and a soft accent glow follows the cursor. */
+.glow-card {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.4s var(--ease-out-soft), border-color 0.4s var(--ease-out-soft), box-shadow 0.4s var(--ease-out-soft);
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%);
+  pointer-events: none;
+}
+.glow-card:hover,
+.glow-card:focus-within {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 18px 50px -24px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.glow-card:hover::before,
+.glow-card:focus-within::before {
+  opacity: 1;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .glow-card.lift:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Browser frame screenshot: slightly tilted, straightens on hover. */
+.tilt {
+  transform: perspective(1400px) rotateY(var(--tilt-y, -6deg)) rotateX(3deg);
+  transition: transform 0.8s var(--ease-out-soft), box-shadow 0.8s var(--ease-out-soft);
+}
+.group:hover .tilt,
+.group:focus-within .tilt {
+  transform: perspective(1400px) rotateY(0) rotateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tilt { transform: none; }
+}
+
+.btn-primary {
+  background-image: var(--gradient-signature);
+  box-shadow: 0 8px 30px -10px color-mix(in srgb, var(--color-purple) 70%, transparent);
+  transition: box-shadow 0.3s, transform 0.3s var(--ease-out-soft), filter 0.3s;
+}
+.btn-primary:hover {
+  box-shadow: 0 10px 40px -8px color-mix(in srgb, var(--color-pink) 70%, transparent);
+  filter: brightness(1.08);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
