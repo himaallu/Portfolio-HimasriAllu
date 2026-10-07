@@ -10,7 +10,7 @@ export const journey: JourneyPhase[] = [
     icon: "code",
     learned: "Programming, data structures, SQL, computer science fundamentals",
     tools: ["Python", "Java", "C/C++", "SQL"],
-    built: [{ label: "B.Tech coursework", href: "#about" }],
+    built: [{ label: "B.Tech coursework", href: "https://vit.ac.in/schools/school-of-computer-science-and-engineering-for-ug-courses" }],
   },
   {
     step: "02",

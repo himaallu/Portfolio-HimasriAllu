@@ -29,6 +29,14 @@ export function ResumeMenu({ resumes, variant = "secondary", align = "left" }: {
   }, [open]);
 
   if (resumes.length === 0) return null;
+  if (resumes.length === 1) {
+    return (
+      <a href={resumes[0].file} download className={buttonStyles[variant]}>
+        <FileDown size={17} aria-hidden />
+        Download resume
+      </a>
+    );
+  }
 
   return (
     <div ref={wrap} className="relative" onBlur={(e) => !wrap.current?.contains(e.relatedTarget as Node) && setOpen(false)}>

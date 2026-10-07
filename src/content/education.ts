@@ -23,7 +23,7 @@ export const education: Education[] = [
     detail: "CGPA 8.31/10",
     dates: "Aug 2021 – Sep 2025",
     about:
-      "I spent four years at VIT Vellore, where I did most of my growing up as an engineer: I founded the VIT Blockchain Community and grew it past 1,000 members, published four research papers, and won a 72-hour hackathon with ForeverYoung.",
+      "I spent four years at VIT Vellore, where I did most of my growing up as an engineer: I founded the VIT Blockchain Community and grew it past 1,000 members, published four research papers, and won the 72-hour Yantra Hackathon with ForeverYoung.",
     personal: null, // TODO: personal line
     logo: "vit",
     photos: "photos/vit",

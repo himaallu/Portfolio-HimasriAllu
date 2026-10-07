@@ -14,7 +14,7 @@ export const hackathons: Hackathon[] = [
   {
     id: "vit-72h",
     result: "Winner, Best Idea in Health and Wellness",
-    event: "72-hour VIT hackathon",
+    event: "Yantra Hackathon, VIT (72 hours)",
     date: "Jun 2023",
     project: "ForeverYoung",
     projectHref: "https://github.com/himaallu/ForeverYoung",
@@ -32,7 +32,24 @@ export const community: Community = {
     { value: "1,000+", label: "members" },
     { value: "Solana · Avalanche", label: "workshops with" },
   ],
-  photos: "photos/community",
+  events: [
+    {
+      name: "InnoVerse Hackathon",
+      description:
+        "Contributed to planning, partnerships, participant engagement, fair judging, marketing and post-event analysis.",
+      photos: "photos/community/innoverse",
+    },
+    {
+      name: "Designathon",
+      description: "Participants designed NFTs and learned how to list them.",
+      photos: "photos/community/designathon",
+    },
+    {
+      name: "Inauguration of the VIT Blockchain Community",
+      description: null,
+      photos: "photos/community/inauguration",
+    },
+  ],
 };
 
 export const certifications: Certification[] = [

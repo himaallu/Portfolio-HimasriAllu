@@ -103,13 +103,20 @@ export type Hackathon = {
   accent: Accent;
 };
 
+export type CommunityEvent = {
+  name: string;
+  description: string | null;
+  /** Folder under public/ whose images become this event's gallery. */
+  photos: string;
+};
+
 export type Community = {
   name: string;
   role: string;
   dates: string;
   bullets: string[];
   stats: Metric[];
-  photos: string;
+  events: CommunityEvent[];
 };
 
 export type Certification = {

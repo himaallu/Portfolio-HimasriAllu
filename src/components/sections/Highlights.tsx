@@ -59,36 +59,52 @@ export function Hackathons() {
 }
 
 export function Community() {
-  const photos = listImages(community.photos, community.name);
   return (
     <section id="community" aria-labelledby="community-title" className="section-gap">
       <div className="container-content">
         <SectionHeader id="community-title" number="07" label="Community" title={community.name} line={`${community.role}, ${community.dates}.`} />
         <Reveal>
-          <GlowCard accent="green" lift={false} className="overflow-hidden p-6 md:p-8">
-            <div className={photos.length > 0 ? "grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]" : ""}>
-              <div className="flex flex-col">
-                <div className="grid grid-cols-2 gap-3">
-                  {community.stats.map((s) => (
-                    <div key={s.label} className="rounded-[16px] border border-line bg-card/60 p-5">
-                      <p className="font-label !text-[0.625rem] text-muted">{s.label}</p>
-                      <p className="mt-2 font-mono text-[1.375rem] font-semibold leading-tight text-primary sm:text-[1.75rem]">{s.value}</p>
-                    </div>
-                  ))}
-                </div>
-                <ul className="mt-6 space-y-2.5">
-                  {community.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-secondary">
-                      <Users size={16} aria-hidden className="mt-1 shrink-0" style={{ color: "var(--accent)" }} />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+          <GlowCard accent="green" lift={false} className="p-6 md:p-8">
+            <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center md:gap-10">
+              <div className="grid grid-cols-2 gap-3">
+                {community.stats.map((s) => (
+                  <div key={s.label} className="rounded-[16px] border border-line bg-card/60 p-5">
+                    <p className="font-label !text-[0.625rem] text-muted">{s.label}</p>
+                    <p className="mt-2 font-mono text-[1.375rem] font-semibold leading-tight text-primary sm:text-[1.75rem]">{s.value}</p>
+                  </div>
+                ))}
               </div>
-              {photos.length > 0 && <Gallery images={photos} label={`${community.name} event photos`} rowHeight="auto-rows-[100px] sm:auto-rows-[130px]" />}
+              <ul className="space-y-2.5">
+                {community.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-3 text-secondary">
+                    <Users size={16} aria-hidden className="mt-1 shrink-0" style={{ color: "var(--accent)" }} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
             </div>
           </GlowCard>
         </Reveal>
+
+        <h3 className="font-label mb-5 mt-12 flex items-center gap-2 text-secondary">
+          <CalendarDays size={15} aria-hidden /> Events
+        </h3>
+        <ul className="grid items-start gap-5 md:grid-cols-3">
+          {community.events.map((e, i) => {
+            const photos = listImages(e.photos, e.name);
+            return (
+              <Reveal as="li" key={e.name} delay={i * 0.06}>
+                <GlowCard accent="green" as="article" className="p-5 md:p-6">
+                  {photos.length > 0 && (
+                    <Gallery images={photos} label={`${e.name} photos`} className="mb-5" max={3} rowHeight="auto-rows-[90px] sm:auto-rows-[100px]" />
+                  )}
+                  <h4 className="font-display text-[1.1875rem] font-semibold leading-snug tracking-display">{e.name}</h4>
+                  {e.description && <p className="mt-2 text-[0.9375rem] leading-relaxed text-secondary">{e.description}</p>}
+                </GlowCard>
+              </Reveal>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

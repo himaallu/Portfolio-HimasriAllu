@@ -121,24 +121,23 @@ function RotatingRole({ roles }: { roles: string[] }) {
 
 function Portrait({ src, name }: { src: string | null; name: string }) {
   return (
-    <div className="relative aspect-[4/5]">
-      {/* Quiet frame: a soft halo and a hairline border */}
-      <div aria-hidden className="absolute -inset-6 rounded-[44px] bg-blue opacity-[0.06] blur-2xl" />
-      <div aria-hidden className="absolute -inset-px rounded-[33px] bg-linear-to-b from-white/25 to-white/5" />
-      <div className="relative h-full overflow-hidden rounded-[32px] bg-card">
+    <div className="relative aspect-square">
+      {/* Quiet frame: a soft halo and a hairline ring */}
+      <div aria-hidden className="absolute -inset-6 rounded-full bg-blue opacity-[0.07] blur-2xl" />
+      <div aria-hidden className="absolute -inset-px rounded-full bg-linear-to-b from-white/30 to-white/5" />
+      <div className="relative h-full overflow-hidden rounded-full bg-card">
         {src ? (
           <Image
             src={src}
             alt={`Portrait of ${name}`}
             fill
             priority
-            sizes="(max-width: 1024px) 260px, 420px"
+            sizes="(max-width: 1024px) 210px, 420px"
             className="object-cover"
           />
         ) : (
           <NameTile name={name} size="lg" />
         )}
-        <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[32px] shadow-[inset_0_0_60px_20px_rgba(7,11,20,0.55)]" />
       </div>
     </div>
   );

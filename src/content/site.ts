@@ -19,21 +19,17 @@ export const seo = {
 export const hero: Hero = {
   roles: ["AI Engineer", "AI/ML Engineer", "Full-stack Engineer"],
   summary: seo.description,
-  resumes: [
-    { label: "AI Engineer", file: "/resumes/HimasriAllu_Resume_AI.pdf" },
-    { label: "AI/ML Engineer", file: "/resumes/HimasriAllu_Resume_AI-ML.pdf" },
-    { label: "Software Engineer", file: "/resumes/HimasriAllu_Resume_SWE.pdf" },
-  ],
+  resumes: [{ label: "Resume", file: "/resumes/HimasriAllu_Resume.pdf" }],
 };
 
-/** Short bio for the About section. Built only from facts in the brief; edit freely. */
+/**
+ * About section. The story paragraphs come from each education entry's `about` text
+ * (VIT first, then UOWD), so they are not repeated on the education cards.
+ */
 export const about = {
-  bio: [
-    "I'm an AI engineer based in Dubai, UAE, and a UAE Golden Visa holder.",
-    "I build production LLM systems where the model handles language and code computes, cites and verifies, and I ship them end to end on FastAPI, Next.js, AWS and Google Cloud.",
-  ],
-  /** Photo for the About section. Falls back to the portrait, then to a neutral tile. */
-  photo: "/photos/about.jpg",
+  title: "From VIT Vellore to Dubai.",
+  /** Alt text for public/photos/about.jpg. */
+  photoAlt: "Himasri Allu at the podium during the InnoVerse Hackathon at VIT",
 };
 
 export const nav = [
