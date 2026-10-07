@@ -49,6 +49,11 @@ export const community: Community = {
       description: null,
       photos: "photos/community/inauguration",
     },
+    {
+      name: "Workshops",
+      description: "Ran workshops with Solana and Avalanche.",
+      photos: "photos/community/workshops",
+    },
   ],
 };
 

@@ -17,7 +17,7 @@ export function Hackathons() {
     <section id="hackathons" aria-labelledby="hackathons-title" className="section-gap">
       <div className="container-content">
         <SectionHeader id="hackathons-title" number="06" label="Hackathons" title="Built under the clock." />
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid items-start gap-5 lg:grid-cols-2">
           {hackathons.map((h, i) => {
             const photos = listImages(h.photos, h.event);
             const ext = isExternal(h.projectHref);
@@ -89,7 +89,7 @@ export function Community() {
         <h3 className="font-label mb-5 mt-12 flex items-center gap-2 text-secondary">
           <CalendarDays size={15} aria-hidden /> Events
         </h3>
-        <ul className="grid items-start gap-5 md:grid-cols-3">
+        <ul className="grid items-start gap-5 md:grid-cols-2">
           {community.events.map((e, i) => {
             const photos = listImages(e.photos, e.name);
             return (

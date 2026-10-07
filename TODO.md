@@ -24,8 +24,7 @@ Credly badge URLs.
 | `public/photos/vit/` | More college photos (shown on the VIT education card) | Gallery hidden |
 | `public/photos/uowd/` | UOWD photos | Gallery hidden |
 | `public/photos/hackathon-n8n/` | n8n Dubai Hackathon photos | Gallery hidden |
-| `public/photos/hackathon-vit/` | Yantra Hackathon photos | Gallery hidden |
-| `public/photos/community/inauguration/` | Inauguration of the VIT Blockchain Community | Event card shows text only |
+| `public/photos/hackathon-vit/` | More Yantra Hackathon photos (one is in) | One photo shown |
 | `public/photos/community/designathon/` | *Optional* Designathon photos | Event card shows text only |
 | `public/photos/community/innoverse/` | More InnoVerse Hackathon photos (one is in) | One photo shown |
 | `public/projects/workflow-ai/cover.jpg` | WorkFlow-AI screenshot (no live demo or repo images to capture) | Name tile |
