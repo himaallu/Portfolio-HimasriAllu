@@ -23,7 +23,7 @@ Credly badge URLs.
 |---|---|---|
 | `public/photos/vit/` | More college photos (shown on the VIT education card) | Gallery hidden |
 | `public/photos/uowd/` | UOWD photos | Gallery hidden |
-| `public/photos/hackathon-n8n/` | n8n Dubai Hackathon photos | Gallery hidden |
+| `public/photos/hackathon-n8n/` | *Optional* n8n Dubai Hackathon photos (the winners announcement is in) | Announcement shown |
 | `public/photos/hackathon-vit/` | More Yantra Hackathon photos (one is in) | One photo shown |
 | `public/photos/community/designathon/` | *Optional* Designathon photos | Event card shows text only |
 | `public/photos/community/innoverse/` | More InnoVerse Hackathon photos (one is in) | One photo shown |

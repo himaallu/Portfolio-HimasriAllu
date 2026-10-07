@@ -29,9 +29,11 @@ type Props = {
   /** Max tiles shown inline; the rest open from a "+N" tile in the lightbox. */
   max?: number;
   rowHeight?: string;
+  /** Which part of each photo stays in view when a tile crops it. */
+  position?: "center" | "top";
 };
 
-export function Gallery({ images, label, className, max = 5, rowHeight = "auto-rows-[96px] sm:auto-rows-[120px]" }: Props) {
+export function Gallery({ images, label, className, max = 5, rowHeight = "auto-rows-[96px] sm:auto-rows-[120px]", position = "center" }: Props) {
   const [open, setOpen] = useState<number | null>(null);
   const close = useCallback(() => setOpen(null), []);
   if (images.length === 0) return null;
@@ -54,7 +56,7 @@ export function Gallery({ images, label, className, max = 5, rowHeight = "auto-r
                 alt={img.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, 400px"
-                className="photo object-cover"
+                className={cn("photo object-cover", position === "top" && "object-top")}
                 loading="lazy"
               />
               <span aria-hidden className="photo-overlay absolute inset-0" />

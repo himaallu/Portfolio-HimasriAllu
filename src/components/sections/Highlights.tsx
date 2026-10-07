@@ -47,7 +47,7 @@ export function Hackathons() {
                       </Link>
                     )}
                   </p>
-                  {photos.length > 0 && <Gallery images={photos} label={`${h.event} photos`} className="mt-6" />}
+                  {photos.length > 0 && <Gallery images={photos} label={`${h.event} photos`} className="mt-6" position="top" rowHeight="auto-rows-[110px] sm:auto-rows-[180px]" />}
                 </GlowCard>
               </Reveal>
             );
