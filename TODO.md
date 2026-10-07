@@ -12,7 +12,7 @@ name tile) until you add it. Text lives in `src/content/`; `null` there means "n
 | Journey | Review the wording of the six draft phases (keep the structure) | `journey.ts` |
 | CardShield | Update the code URL if the repo is renamed from `CardSheild` to `CardShield` | `projects.ts` |
 | Case studies | Approve the three "The problem" drafts (written from each repo README) | `projects.ts` → `problem` |
-| Startup Idea Evaluator | Fix the live demo (it crashes with a KeyError), then restore its `live` URL (kept in a comment) | `projects.ts` |
+| More projects | Live demos for HealthLens, DebateBot and Startup Idea Evaluator are hidden while you debug them; the URLs are kept in comments next to `live: null`. Startup Idea Evaluator crashed with a KeyError | `projects.ts` |
 | Resume PDF | Cloud Practitioner says Jun 2024 (site: Jan 2024); "AI engineering student" vs "AI engineer"; contains your phone number | `public/resumes/HimasriAllu_Resume.pdf` |
 
 The site shows two selected papers (the IEEE IConSCEPT-2024 paper and the IRJAEH article). Their

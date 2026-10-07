@@ -90,7 +90,9 @@ export const moreProjects: SmallProject[] = [
     name: "HealthLens",
     line: "Turns patient voice recordings into structured SOAP clinical notes",
     stack: ["Streamlit", "AssemblyAI", "Gemini"],
-    live: "https://healthlens-yrlua25pdjp7xcibu4fcxv.streamlit.app/",
+    // Live demo hidden while Himasri debugs it; restore once checked:
+    // https://healthlens-yrlua25pdjp7xcibu4fcxv.streamlit.app/
+    live: null,
     code: "https://github.com/himaallu/HealthLens",
     badge: null,
     accent: "green",
@@ -110,7 +112,9 @@ export const moreProjects: SmallProject[] = [
     name: "DebateBot",
     line: "Generates grounded pro and con debates from uploaded policy PDFs using RAG",
     stack: ["Streamlit", "LangChain", "FAISS", "Gemini"],
-    live: "https://debatebothimasriallu.streamlit.app",
+    // Live demo hidden while Himasri debugs it; restore once checked:
+    // https://debatebothimasriallu.streamlit.app
+    live: null,
     code: "https://github.com/himaallu/DebateBot",
     badge: null,
     accent: "purple",
@@ -120,7 +124,7 @@ export const moreProjects: SmallProject[] = [
     name: "Startup Idea Evaluator",
     line: "Three AI agents assess a startup idea: market research, competitors and pitch summary",
     stack: ["CrewAI", "Streamlit", "Hugging Face"],
-    // Live demo hidden while it crashes with a KeyError; restore once fixed:
+    // Live demo hidden while Himasri debugs it (it crashed with a KeyError); restore once checked:
     // https://startupideaevaluator-sujg5kvghqk7fzkdec7ugu.streamlit.app/
     live: null,
     code: "https://github.com/himaallu/StartUpIdeaEvaluator",
