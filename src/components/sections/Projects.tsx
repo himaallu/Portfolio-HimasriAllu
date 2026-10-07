@@ -10,7 +10,7 @@ import { BrowserFrame } from "../BrowserFrame";
 import { Badge, Chip } from "../Chip";
 import { GlowCard } from "../GlowCard";
 import { ExternalIcon, GithubIcon } from "../Icons";
-import { NameTile } from "../NameTile";
+import { ProjectCover } from "../ProjectCover";
 import { Reveal } from "../Reveal";
 import { SectionHeader } from "../SectionHeader";
 
@@ -66,6 +66,7 @@ function Featured({ project: p, flip, cover }: { project: FeaturedProject; flip:
             url={p.live ?? p.code}
             name={p.name}
             className="tilt"
+            placeholder={<ProjectCover name={p.name} stack={p.stack} hint="Case study" />}
           />
         </Link>
       </Reveal>
@@ -134,32 +135,27 @@ function Featured({ project: p, flip, cover }: { project: FeaturedProject; flip:
 function SmallCard({ project: p, cover }: { project: SmallProject; cover: string | null }) {
   return (
     <GlowCard accent={p.accent} as="article" className="flex h-full flex-col overflow-hidden">
-      <div className="relative aspect-[16/9] overflow-hidden border-b border-line">
-        {cover ? (
-          <>
-            <Image src={cover} alt={`${p.name} screenshot`} fill sizes="(max-width: 640px) 100vw, 380px" className="photo object-cover object-top" />
-            <div aria-hidden className="photo-overlay absolute inset-0" />
-          </>
-        ) : (
-          <NameTile name={p.name} />
-        )}
-        {p.badge && (
-          <span className="absolute left-3 top-3">
-            <Badge className="bg-base/80 backdrop-blur">{p.badge}</Badge>
-          </span>
-        )}
-      </div>
-      <div className="flex flex-1 flex-col p-5">
-        <h4 className="font-display text-[1.25rem] font-semibold tracking-display">{p.name}</h4>
+      {cover && (
+        <div className="relative aspect-[16/9] overflow-hidden border-b border-line">
+          <Image src={cover} alt={`${p.name} screenshot`} fill sizes="(max-width: 640px) 100vw, 380px" className="photo object-cover object-top" />
+          <div aria-hidden className="photo-overlay absolute inset-0" />
+        </div>
+      )}
+      <div aria-hidden className="h-px w-full" style={{ background: "linear-gradient(90deg, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%)" }} />
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h4 className="font-display text-[1.25rem] font-semibold tracking-display">{p.name}</h4>
+          {p.badge && <Badge>{p.badge}</Badge>}
+        </div>
         <p className="mt-2 text-[0.9375rem] leading-relaxed text-secondary">{p.line}</p>
-        <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Stack">
+        <ul className="mb-5 mt-4 flex flex-wrap gap-1.5" aria-label="Stack">
           {p.stack.map((s) => (
             <li key={s}>
               <Chip accent>{s}</Chip>
             </li>
           ))}
         </ul>
-        <div className="mt-auto flex items-center gap-4 pt-5">
+        <div className="mt-auto flex items-center gap-4 border-t border-line pt-4">
           {p.live && (
             <a href={p.live} target="_blank" rel="noopener noreferrer" aria-label={`${p.name} live demo (opens in a new tab)`} className="inline-flex items-center gap-1 text-[0.875rem] text-primary hover:text-[var(--accent)]">
               Live demo <ExternalIcon size={14} />

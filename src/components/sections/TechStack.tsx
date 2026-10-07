@@ -47,7 +47,7 @@ export function TechStack() {
   return (
     <section id="stack" aria-labelledby="stack-title" className="section-gap">
       <div className="container-content">
-        <SectionHeader id="stack-title" number="09" label="Tech stack" title="The toolkit." />
+        <SectionHeader id="stack-title" number="07" label="Tech stack" title="The toolkit." />
         <div className="grid gap-5 lg:grid-cols-3">
           {stack.map((g, gi) => (
             <Reveal key={g.name} delay={gi * 0.08}>

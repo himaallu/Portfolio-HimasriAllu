@@ -22,8 +22,8 @@ Credly badge URLs.
 
 | Path | What | Shown as until supplied |
 |---|---|---|
-| `public/photos/portrait.jpg` | Hero portrait (4:5 crop works best) | Name tile |
-| `public/photos/about.jpg` | *Optional* About photo; falls back to the first UOWD photo, then VIT, then the portrait | Name tile |
+| `public/photos/portrait.jpg` | Hero portrait (4:5 crop works best) | "At a glance" highlights card |
+| `public/photos/about.jpg` | *Optional* About photo; falls back to the first UOWD photo, then VIT, then the portrait | Hidden (bio spans the row) |
 | `public/photos/vit/` | College photos | Gallery hidden |
 | `public/photos/uowd/` | UOWD photos | Gallery hidden |
 | `public/photos/hackathon-n8n/` | n8n Dubai Hackathon photos | Gallery hidden |
@@ -33,10 +33,10 @@ Credly badge URLs.
 | `public/logos/uowd.(svg\|png)` | UOWD logo (square, on its own background) | "UOWD" in text |
 | `public/logos/vit.(svg\|png)` | VIT logo | "VIT" in text |
 | `public/logos/aws.(svg\|png)` | AWS logo (not used yet; certification cards use the badges) | none |
-| `public/certs/aws-solutions-architect-associate.(png\|svg)` | Credly badge (download the badge image from Credly) | "AWS" tile |
-| `public/certs/aws-cloud-practitioner.(png\|svg)` | Credly badge (download the badge image from Credly) | "AWS" tile |
-| `public/projects/<slug>/cover.png` | Main screenshot for each project (16:10 works best) | Name tile in the browser frame |
-| `public/projects/<slug>/architecture.png` | Architecture diagram (featured projects) | Name tile |
+| `public/certs/aws-solutions-architect-associate.(png\|svg)` | Credly badge (download the badge image from Credly) | "AWS" in an amber circle |
+| `public/certs/aws-cloud-practitioner.(png\|svg)` | Credly badge (download the badge image from Credly) | "AWS" in an amber circle |
+| `public/projects/<slug>/cover.png` | Main screenshot for each project (16:10 works best) | Designed cover in the browser frame (homepage); hidden on the case-study page; small cards show no image |
+| `public/projects/<slug>/architecture.png` | Architecture diagram (featured projects) | Section hidden |
 | `public/projects/<slug>/*.png` | Any other images become the Screenshots gallery on the case-study page | Hidden |
 | `reference/roadmap-style.jpg` | Style reference only; never published (it is outside `public/`) | none |
 

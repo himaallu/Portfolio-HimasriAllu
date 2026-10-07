@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { NameTile } from "./NameTile";
 
@@ -11,6 +12,7 @@ export function BrowserFrame({
   className,
   priority,
   sizes = "(max-width: 1024px) 100vw, 640px",
+  placeholder,
 }: {
   src: string | null;
   alt: string;
@@ -19,6 +21,8 @@ export function BrowserFrame({
   className?: string;
   priority?: boolean;
   sizes?: string;
+  /** Shown instead of the neutral name tile when there is no screenshot. */
+  placeholder?: ReactNode;
 }) {
   const host = url ? url.replace(/^https?:\/\//, "").replace(/\/$/, "") : null;
   return (
@@ -42,7 +46,7 @@ export function BrowserFrame({
         {src ? (
           <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover object-top" />
         ) : (
-          <NameTile name={name} size="lg" />
+          (placeholder ?? <NameTile name={name} size="lg" />)
         )}
       </div>
     </div>

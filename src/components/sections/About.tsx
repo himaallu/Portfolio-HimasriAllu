@@ -6,7 +6,6 @@ import { findImage, listImages, type GalleryImage } from "@/lib/assets";
 import { accentVar } from "@/lib/accent";
 import { Gallery } from "../Gallery";
 import { GlowCard } from "../GlowCard";
-import { NameTile } from "../NameTile";
 import { Reveal } from "../Reveal";
 import { SectionHeader } from "../SectionHeader";
 
@@ -23,40 +22,31 @@ export function About() {
       <div className="container-content">
         <SectionHeader id="about-title" number="01" label="About" title="Language from the model. Answers from code." />
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-          <Reveal className="group relative aspect-[4/3] overflow-hidden rounded-card border border-line lg:aspect-auto lg:min-h-[340px]">
-            {photo ? (
-              <>
-                <Image src={photo} alt={`${identity.name}`} fill sizes="(max-width: 1024px) 100vw, 480px" className="photo object-cover" />
-                <div aria-hidden className="photo-overlay absolute inset-0" />
-              </>
-            ) : (
-              <NameTile name={identity.name} size="lg" />
-            )}
-          </Reveal>
+        <div className={photo ? "grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12" : "grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16"}>
+          {photo && (
+            <Reveal className="group relative aspect-[4/3] overflow-hidden rounded-card border border-line lg:aspect-auto lg:min-h-[340px]">
+              <Image src={photo} alt={`${identity.name}`} fill sizes="(max-width: 1024px) 100vw, 480px" className="photo object-cover" />
+              <div aria-hidden className="photo-overlay absolute inset-0" />
+            </Reveal>
+          )}
 
           <Reveal delay={0.1} className="flex flex-col justify-center">
             {about.bio.map((p, i) => (
-              <p key={i} className={i === 0 ? "font-display text-[1.5rem] font-medium leading-snug tracking-display text-primary md:text-[1.75rem]" : "mt-5 max-w-prose text-secondary"}>
+              <p key={i} className={i === 0 ? "font-display text-[1.5rem] font-medium leading-snug tracking-display text-primary md:text-[1.75rem]" : "mt-5 max-w-prose text-lg leading-relaxed text-secondary"}>
                 {p}
               </p>
             ))}
-            <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-line bg-line sm:grid-cols-3">
-              {[
-                { k: "Based in", v: identity.location },
-                { k: "Studying", v: "Master of Applied AI, UOWD" },
-                { k: "B.Tech CSE", v: "VIT · CGPA 8.31" },
-              ].map((d) => (
-                <div key={d.k} className="bg-raised px-4 py-4 last:col-span-2 sm:last:col-span-1">
-                  <dt className="font-label !text-[0.625rem] text-muted">{d.k}</dt>
-                  <dd className="mt-1 text-[0.9375rem] text-primary">{d.v}</dd>
-                </div>
-              ))}
-            </dl>
+            {photo && <Facts className="mt-8 grid grid-cols-2 sm:grid-cols-3" />}
           </Reveal>
+
+          {!photo && (
+            <Reveal delay={0.15} className="self-center">
+              <Facts stacked className="grid grid-cols-1" />
+            </Reveal>
+          )}
         </div>
 
-        <h3 className="font-label mb-5 mt-16 flex items-center gap-2 text-secondary">
+        <h3 className="font-label mb-5 mt-14 md:mt-20 flex items-center gap-2 text-secondary">
           <GraduationCap size={15} aria-hidden /> Education
         </h3>
         <div className="grid gap-5 md:grid-cols-2">
@@ -68,6 +58,25 @@ export function About() {
         </div>
       </div>
     </section>
+  );
+}
+
+const facts = [
+  { k: "Based in", v: identity.location },
+  { k: "Studying", v: "Master of Applied AI, UOWD" },
+  { k: "B.Tech CSE", v: "VIT · CGPA 8.31" },
+];
+
+function Facts({ className, stacked = false }: { className?: string; stacked?: boolean }) {
+  return (
+    <dl className={`gap-px overflow-hidden rounded-[16px] border border-line bg-line ${className ?? ""}`}>
+      {facts.map((d) => (
+        <div key={d.k} className={stacked ? "bg-raised px-5 py-4" : "bg-raised px-5 py-4 last:col-span-2 sm:last:col-span-1"}>
+          <dt className="font-label !text-[0.625rem] text-muted">{d.k}</dt>
+          <dd className="mt-1 text-[0.9375rem] text-primary">{d.v}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 

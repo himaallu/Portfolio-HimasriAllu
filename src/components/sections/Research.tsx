@@ -1,5 +1,5 @@
-import { Award, BookOpen } from "lucide-react";
-import { papers, researchHeadline } from "@/content";
+import { Award } from "lucide-react";
+import { papers } from "@/content";
 import type { Paper } from "@/content/types";
 import { listImages } from "@/lib/assets";
 import { Badge } from "../Chip";
@@ -10,28 +10,14 @@ import { Reveal } from "../Reveal";
 import { SectionHeader } from "../SectionHeader";
 
 export function Research() {
-  const [count, ...words] = researchHeadline.split(" ");
   return (
     <section id="research" aria-labelledby="research-title" className="section-gap">
       <div className="container-content">
-        <SectionHeader id="research-title" number="05" label="Research" title="Published, and peer-reviewed." line="Selected papers, including an IEEE Best Paper Award winner." />
+        <SectionHeader id="research-title" number="05" label="Research" title="Published, and peer-reviewed." line="Two selected papers, including an IEEE Best Paper Award winner." />
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          <Reveal className="lg:row-span-1">
-            <GlowCard accent="pink" className="relative flex h-full min-h-[220px] flex-col justify-between gap-6 overflow-hidden p-7">
-              <div aria-hidden className="dot-grid absolute inset-0 opacity-70" />
-              <BookOpen size={22} aria-hidden className="relative" style={{ color: "var(--accent)" }} />
-              <p className="relative">
-                <span className="text-gradient block font-display text-[5rem] font-bold leading-none tracking-display">{count}</span>
-                <span className="mt-2 block font-display text-xl font-medium tracking-display text-primary">{words.join(" ")}</span>
-              </p>
-              <p className="relative text-[0.875rem] leading-relaxed text-secondary">
-                IEEE conference paper, plus international and national journal papers.
-              </p>
-            </GlowCard>
-          </Reveal>
+        <div className="grid gap-5 lg:grid-cols-2">
           {papers.map((p, i) => (
-            <Reveal key={p.id} delay={0.06 * (i + 1)} className={i === 0 ? "lg:col-span-2" : "lg:col-span-3"}>
+            <Reveal key={p.id} delay={0.06 * i}>
               <PaperCard paper={p} featured={i === 0} />
             </Reveal>
           ))}

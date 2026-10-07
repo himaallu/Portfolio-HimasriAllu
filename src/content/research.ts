@@ -1,8 +1,6 @@
 import type { Paper } from "./types";
 
-export const researchHeadline = "4× published researcher";
-
-/** Papers shown on the site (a selection; the headline counts all four publications). */
+/** Papers shown on the site. */
 export const papers: Paper[] = [
   {
     id: 1,

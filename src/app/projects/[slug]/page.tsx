@@ -8,7 +8,6 @@ import { Button } from "@/components/Button";
 import { Badge, Chip } from "@/components/Chip";
 import { Gallery } from "@/components/Gallery";
 import { ExternalIcon, GithubIcon } from "@/components/Icons";
-import { NameTile } from "@/components/NameTile";
 import { Reveal } from "@/components/Reveal";
 import { featuredProjects, identity } from "@/content";
 import { findImage, listImages } from "@/lib/assets";
@@ -81,13 +80,20 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               )}
             </div>
           </Reveal>
-          <Reveal delay={0.1} className="mt-14">
-            <BrowserFrame src={cover} alt={`${p.name} screenshot`} url={p.live ?? p.code} name={p.name} priority sizes="(max-width: 1200px) 100vw, 1136px" />
-          </Reveal>
+          {cover && (
+            <Reveal delay={0.1} className="mt-14">
+              <BrowserFrame src={cover} alt={`${p.name} screenshot`} url={p.live ?? p.code} name={p.name} priority sizes="(max-width: 1200px) 100vw, 1136px" />
+            </Reveal>
+          )}
         </div>
       </header>
 
-      <div className="container-content mt-20 grid gap-16 lg:grid-cols-[minmax(0,1fr)_320px]">
+      {!cover && (
+        <div className="container-content mt-16">
+          <div aria-hidden className="border-t border-line" />
+        </div>
+      )}
+      <div className={`container-content grid gap-16 lg:grid-cols-[minmax(0,1fr)_320px] ${cover ? "mt-20" : "mt-16"}`}>
         <div className="min-w-0 space-y-16">
           <Block n="01" title="The problem">
             <p className="max-w-prose text-lg text-secondary">{p.tagline}.</p>
@@ -103,18 +109,16 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             </ul>
           </Block>
 
-          <Block n="03" title="Architecture">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-line bg-raised">
-              {diagram ? (
+          {diagram && (
+            <Block n="03" title="Architecture">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-line bg-raised">
                 <Image src={diagram} alt={`${p.name} architecture diagram`} fill sizes="(max-width: 1024px) 100vw, 800px" className="object-contain p-4" loading="lazy" />
-              ) : (
-                <NameTile name={`${p.name} architecture`} />
-              )}
-            </div>
-          </Block>
+              </div>
+            </Block>
+          )}
 
           {screenshots.length > 0 && (
-            <Block n="04" title="Screenshots">
+            <Block n={diagram ? "04" : "03"} title="Screenshots">
               <Gallery images={screenshots} label={`${p.name} screenshots`} rowHeight="auto-rows-[110px] sm:auto-rows-[150px]" />
             </Block>
           )}

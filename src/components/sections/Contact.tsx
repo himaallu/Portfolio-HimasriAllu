@@ -22,7 +22,7 @@ export function Contact({ resumes }: { resumes: Resume[] }) {
             <div className="dot-grid absolute inset-0" />
           </div>
           <div className="relative">
-            <SectionHeader id="contact-title" number="10" label="Contact" title="Let's build something that holds up in production." line={`Based in ${identity.location}. The fastest way to reach me is email.`} />
+            <SectionHeader id="contact-title" number="08" label="Contact" title="Let's build something that holds up in production." line={`Based in ${identity.location}. The fastest way to reach me is email.`} />
             <ul className="grid gap-4 md:grid-cols-3">
               {links.map((l, i) => (
                 <Reveal as="li" key={l.label} delay={i * 0.06}>

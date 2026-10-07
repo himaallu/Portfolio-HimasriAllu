@@ -39,8 +39,8 @@
   --radius-chip: 12px;
   --radius-pill: 999px;
 
-  --text-hero: clamp(3rem, 9vw, 7rem);
-  --text-section: clamp(2rem, 4vw, 3.25rem);
+  --text-hero: clamp(2.75rem, 7.2vw, 5.75rem);
+  --text-section: clamp(1.875rem, 3.4vw, 2.75rem);
   --text-title: 1.375rem;
   --text-body: 1.0625rem;
 

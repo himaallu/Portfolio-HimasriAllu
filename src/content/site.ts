@@ -42,8 +42,6 @@ export const nav = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "research", label: "Research" },
-  { id: "hackathons", label: "Hackathons" },
-  { id: "community", label: "Community" },
-  { id: "certifications", label: "Certifications" },
+  { id: "highlights", label: "Highlights" },
   { id: "contact", label: "Contact" },
 ];
