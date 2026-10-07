@@ -43,24 +43,6 @@ export default function OgImage() {
           </div>
           <div style={{ display: "flex", marginTop: 24, fontSize: 44, color: "#F4F6FB" }}>{hero.roles[0]}</div>
         </div>
-        <div style={{ display: "flex", gap: 16 }}>
-          {hero.proofChips.map((c) => (
-            <div
-              key={c.label}
-              style={{
-                display: "flex",
-                padding: "12px 20px",
-                borderRadius: 12,
-                border: "1px solid rgba(255,255,255,0.14)",
-                background: "rgba(12,18,32,0.8)",
-                fontSize: 22,
-                color: "#A7B0C4",
-              }}
-            >
-              {`${c.prefix}${c.value}${c.suffix} ${c.label}`.slice(0, 44)}
-            </div>
-          ))}
-        </div>
       </div>
     ),
     size,

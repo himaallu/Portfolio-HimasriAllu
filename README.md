@@ -9,7 +9,7 @@ All text is in **`src/content/`**; components never hold copy.
 
 | File | Contains |
 |---|---|
-| `site.ts` | Identity, SEO, hero summary, proof chips, resume list, About bio, nav |
+| `site.ts` | Identity, SEO, hero summary, resume list, About bio, nav |
 | `education.ts` | UOWD and VIT cards |
 | `experience.ts` | The four roles |
 | `projects.ts` | Featured projects (with case-study pages) and "More projects" |

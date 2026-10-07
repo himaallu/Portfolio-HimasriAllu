@@ -19,24 +19,11 @@ export type Identity = {
   site: string;
 };
 
-export type ProofChip = {
-  icon: "trophy" | "award" | "cloud";
-  /** Text before the animated number. */
-  prefix: string;
-  /** Number that counts up. */
-  value: number;
-  /** Text after the animated number. */
-  suffix: string;
-  /** Rest of the chip text. */
-  label: string;
-};
-
 export type Resume = { label: string; file: string };
 
 export type Hero = {
   roles: string[];
   summary: string;
-  proofChips: ProofChip[];
   resumes: Resume[];
 };
 

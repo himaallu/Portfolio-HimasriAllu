@@ -6,17 +6,15 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { Hero as HeroContent, Identity, Resume } from "@/content/types";
 import { Button } from "./Button";
-import { CountUp } from "./CountUp";
-import { chipIcons, ExternalIcon, GithubIcon } from "./Icons";
+import { ExternalIcon, GithubIcon } from "./Icons";
 import { NameTile } from "./NameTile";
 import { ResumeMenu } from "./ResumeMenu";
 
 type Props = { identity: Identity; hero: HeroContent; portrait: string | null; resumes: Resume[] };
 
-const chipAccents = ["var(--color-amber)", "var(--color-purple)", "var(--color-blue)"];
 
 export function Hero({ identity, hero, portrait, resumes }: Props) {
-  // Entry sequence (name, role, summary, chips, buttons, portrait) is CSS-driven via [data-enter],
+  // Entry sequence (name, role, summary, buttons, portrait) is CSS-driven via [data-enter],
   // so it paints before hydration.
   const [first, ...rest] = identity.name.split(" ");
 
@@ -26,7 +24,7 @@ export function Hero({ identity, hero, portrait, resumes }: Props) {
 
       <div className="container-content grid items-center gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
         {/* Portrait: right on desktop, above the name on mobile */}
-        <div data-enter style={{ animationDelay: "0.84s" }}
+        <div data-enter style={{ animationDelay: "0.56s" }}
           className="order-first mx-auto w-[min(50vw,210px)] lg:order-last lg:w-full lg:max-w-[420px]"
         >
           <Portrait src={portrait} name={identity.name} />
@@ -57,32 +55,7 @@ export function Hero({ identity, hero, portrait, resumes }: Props) {
             {hero.summary}
           </p>
 
-          <ul data-enter style={{ animationDelay: "0.42s" }} className="mt-8 grid gap-2.5 sm:grid-cols-3" aria-label="Highlights">
-            {hero.proofChips.map((c, i) => {
-              const Icon = chipIcons[c.icon];
-              return (
-                <li
-                  key={c.label}
-                  className="surface flex items-start gap-3 !rounded-[16px] px-4 py-3.5"
-                  style={{ ["--accent" as string]: chipAccents[i % chipAccents.length] }}
-                >
-                  <span className="chip-accent mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px]">
-                    <Icon size={16} aria-hidden />
-                  </span>
-                  <span className="text-[0.875rem] leading-snug text-secondary">
-                    <span className="mb-0.5 block whitespace-nowrap font-mono text-[1.1875rem] font-semibold leading-tight text-primary">
-                      {c.prefix}
-                      <CountUp to={c.value} delay={0.6 + i * 0.1} />
-                      {c.suffix}
-                    </span>
-                    {c.label}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-
-          <div data-enter style={{ animationDelay: "0.56s" }} className="mt-9 flex flex-wrap items-center gap-3">
+          <div data-enter style={{ animationDelay: "0.42s" }} className="mt-9 flex flex-wrap items-center gap-3">
             <Button href="#projects">
               View projects <ArrowRight size={17} aria-hidden />
             </Button>

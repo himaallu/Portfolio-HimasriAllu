@@ -1,15 +1,12 @@
 import {
   ArrowUpRight,
-  Award,
   BarChart3,
   Brain,
   Briefcase,
-  Cloud,
   Code2,
   GraduationCap,
   Server,
   Sparkles,
-  Trophy,
   type LucideProps,
 } from "lucide-react";
 import { siGithub } from "simple-icons";
@@ -23,8 +20,6 @@ export const phaseIcons = {
   briefcase: Briefcase,
   graduation: GraduationCap,
 };
-
-export const chipIcons = { trophy: Trophy, award: Award, cloud: Cloud };
 
 export function GithubIcon({ size = 18, className }: { size?: number; className?: string }) {
   return (
