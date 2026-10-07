@@ -96,7 +96,7 @@ export function Community() {
               <Reveal as="li" key={e.name} delay={i * 0.06}>
                 <GlowCard accent="green" as="article" className="p-5 md:p-6">
                   {photos.length > 0 && (
-                    <Gallery images={photos} label={`${e.name} photos`} className="mb-5" max={3} rowHeight="auto-rows-[90px] sm:auto-rows-[100px]" />
+                    <Gallery images={photos} label={`${e.name} photos`} className="mb-5" max={3} position={e.photoPosition ?? "center"} rowHeight="auto-rows-[90px] sm:auto-rows-[100px]" />
                   )}
                   <h4 className="font-display text-[1.1875rem] font-semibold leading-snug tracking-display">{e.name}</h4>
                   {e.description && <p className="mt-2 text-[0.9375rem] leading-relaxed text-secondary">{e.description}</p>}

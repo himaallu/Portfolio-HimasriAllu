@@ -28,8 +28,8 @@ export const hero: Hero = {
  */
 export const about = {
   title: "From VIT Vellore to Dubai.",
-  /** Alt text for public/photos/about.jpg. */
-  photoAlt: "Himasri Allu at the podium during the InnoVerse Hackathon at VIT",
+  /** Alt text for public/photos/about.jpg (optional; without it the section is text only). */
+  photoAlt: "Himasri Allu",
 };
 
 export const nav = [

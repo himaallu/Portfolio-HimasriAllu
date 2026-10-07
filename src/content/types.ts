@@ -110,6 +110,8 @@ export type CommunityEvent = {
   description: string | null;
   /** Folder under public/ whose images become this event's gallery. */
   photos: string;
+  /** Focal point kept in view when a tile crops the photo (CSS object-position). Default "center". */
+  photoPosition?: string;
 };
 
 export type Community = {

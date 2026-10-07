@@ -38,6 +38,7 @@ export const community: Community = {
       description:
         "Contributed to planning, partnerships, participant engagement, fair judging, marketing and post-event analysis.",
       photos: "photos/community/innoverse",
+      photoPosition: "50% 30%",
     },
     {
       name: "Designathon",
@@ -48,6 +49,7 @@ export const community: Community = {
       name: "Inauguration of the VIT Blockchain Community",
       description: null,
       photos: "photos/community/inauguration",
+      photoPosition: "50% 72%",
     },
     {
       name: "Workshops",

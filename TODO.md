@@ -28,8 +28,8 @@ Credly badge URLs.
 | `public/photos/uowd/` | UOWD photos | Gallery hidden |
 | `public/photos/hackathon-n8n/` | *Optional* n8n Dubai Hackathon photos (the winners announcement is in) | Announcement shown |
 | `public/photos/hackathon-vit/` | More Yantra Hackathon photos (one is in) | One photo shown |
-| `public/photos/community/designathon/` | *Optional* Designathon photos | Event card shows text only |
-| `public/photos/community/innoverse/` | More InnoVerse Hackathon photos (one is in) | One photo shown |
+| `public/photos/about.jpg` | *Optional* a photo of you for the About section (different from the hero portrait) | Text only |
+| `public/photos/community/innoverse/` | More InnoVerse Hackathon photos (the podium photo is in) | One photo shown |
 | `public/projects/startup-idea-evaluator/cover.jpg` | Startup Idea Evaluator screenshot, once the live demo is fixed | Name tile |
 | `public/photos/research/` | Best Paper Award photo or certificate | Hidden |
 | `public/logos/uowd.(svg\|png)` | UOWD logo (square, on its own background) | "UOWD" in text |

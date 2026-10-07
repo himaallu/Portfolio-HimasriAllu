@@ -29,8 +29,8 @@ type Props = {
   /** Max tiles shown inline; the rest open from a "+N" tile in the lightbox. */
   max?: number;
   rowHeight?: string;
-  /** Which part of each photo stays in view when a tile crops it. */
-  position?: "center" | "top";
+  /** Which part of each photo stays in view when a tile crops it (CSS object-position, e.g. "top" or "50% 30%"). */
+  position?: string;
 };
 
 export function Gallery({ images, label, className, max = 5, rowHeight = "auto-rows-[96px] sm:auto-rows-[120px]", position = "center" }: Props) {
@@ -56,7 +56,8 @@ export function Gallery({ images, label, className, max = 5, rowHeight = "auto-r
                 alt={img.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, 400px"
-                className={cn("photo object-cover", position === "top" && "object-top")}
+                className="photo object-cover"
+                style={{ objectPosition: position }}
                 loading="lazy"
               />
               <span aria-hidden className="photo-overlay absolute inset-0" />
