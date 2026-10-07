@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1080" width="1600" height="1080" role="img" aria-label="CardShield architecture: offline training with MLflow, FastAPI serving with SHAP reasons, and drift monitoring">
+<title>CardShield architecture: offline training with MLflow, FastAPI serving with SHAP reasons, and drift monitoring</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7A859F"/></marker></defs>
+<rect width="100%" height="100%" fill="#0C1220"/>
+<text x="40" y="50" text-anchor="start" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14" letter-spacing="1.5" fill="#7A859F">OFFLINE · TRAINING</text>
+<rect x="40" y="90" width="330" height="118" rx="16" fill="#0F1A1F" stroke="#8CBFA8" stroke-width="1.5"/>
+<text x="352" y="118" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#8CBFA8">DATA</text>
+<text x="60" y="130" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">creditcard.csv</text>
+<text x="60" y="158" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">SHA-256 pinned</text>
+<rect x="430" y="90" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="450" y="130" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Time-based split</text>
+<text x="450" y="158" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">60 / 20 / 20</text>
+<rect x="820" y="90" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="840" y="130" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Train 4 models</text>
+<text x="840" y="158" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">LR, RF, XGBoost, LightGBM</text>
+<rect x="1210" y="90" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="1230" y="130" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Cost-based threshold</text>
+<text x="1230" y="158" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">chosen on validation</text>
+<rect x="1210" y="350" width="330" height="118" rx="16" fill="#0F1A1F" stroke="#8CBFA8" stroke-width="1.5"/>
+<text x="1522" y="378" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#8CBFA8">DATA</text>
+<text x="1230" y="390" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">MLflow</text>
+<text x="1230" y="418" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">tracking + registry</text>
+<rect x="820" y="350" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="840" y="390" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Export champion</text>
+<text x="840" y="418" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">model.txt + metadata.json</text>
+<text x="40" y="610" text-anchor="start" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14" letter-spacing="1.5" fill="#7A859F">ONLINE · SERVING (DOCKER)</text>
+<rect x="430" y="650" width="330" height="118" rx="16" fill="#151B2E" stroke="#8EA8D8" stroke-width="1.5"/>
+<text x="450" y="690" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Client</text>
+<text x="450" y="718" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">payment to score</text>
+<rect x="820" y="650" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="840" y="690" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">FastAPI /v1/score</text>
+<text x="840" y="718" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">decision + top 3 SHAP reasons</text>
+<text x="840" y="741" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">13 ms p95 · /metrics</text>
+<rect x="1210" y="650" width="330" height="118" rx="16" fill="#0F1A1F" stroke="#8CBFA8" stroke-width="1.5"/>
+<text x="1522" y="678" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#8CBFA8">DATA</text>
+<text x="1230" y="690" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Prediction log</text>
+<text x="1230" y="718" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">SQLite</text>
+<text x="40" y="870" text-anchor="start" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14" letter-spacing="1.5" fill="#7A859F">MONITORING</text>
+<rect x="820" y="910" width="330" height="118" rx="16" fill="#0F1A1F" stroke="#8CBFA8" stroke-width="1.5"/>
+<text x="1132" y="938" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#8CBFA8">DATA</text>
+<text x="840" y="950" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Reference sample</text>
+<text x="840" y="978" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">validation period</text>
+<rect x="1210" y="910" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="1230" y="950" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Evidently drift report</text>
+<text x="1230" y="978" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">PSI fallback · drift.html</text>
+<path d="M 370 149 L 430 149" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 760 149 L 820 149" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1150 149 L 1210 149" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1375 208 L 1375 350" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1210 409 L 1150 409" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 985 468 L 985 650" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 760 709 L 820 709" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1150 709 L 1210 709" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1375 768 L 1375 910" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1150 969 L 1210 969" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="1026" width="18" height="18" rx="5" fill="#2A2618" stroke="#CFB37F" stroke-width="1.5"/>
+<text x="68" y="1040" text-anchor="start" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" letter-spacing="0" fill="#A7B0C4">LLM step</text>
+<rect x="210" y="1026" width="18" height="18" rx="5" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="238" y="1040" text-anchor="start" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" letter-spacing="0" fill="#A7B0C4">Plain code</text>
+<rect x="380" y="1026" width="18" height="18" rx="5" fill="#0F1A1F" stroke="#8CBFA8" stroke-width="1.5"/>
+<text x="408" y="1040" text-anchor="start" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" letter-spacing="0" fill="#A7B0C4">Data store</text>
+</svg>

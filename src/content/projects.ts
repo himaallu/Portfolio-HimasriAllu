@@ -5,6 +5,9 @@ export const featuredProjects: FeaturedProject[] = [
     slug: "haqqi",
     name: "Haqqi",
     tagline: "AI legal-aid assistant for UAE migrant workers with limited Arabic or legal knowledge",
+    // Draft from the repo README; Himasri to approve.
+    problem:
+      "MOHRE settles 98.6% of the labour disputes that reach it, but many low-wage migrant workers never get that far. The law and the complaint are in Arabic or English, many workers don't know which rights apply or what they are owed, and a vague or wrong claim is easy to dismiss.",
     stack: ["Next.js", "FastAPI", "Supabase pgvector", "Gemini / K2 Horizon", "Whisper", "Langfuse"],
     bullets: [
       "Built a voice-first assistant in 8 languages turning a worker's story into cited violations, an itemised claim and an Arabic complaint PDF.",
@@ -26,6 +29,9 @@ export const featuredProjects: FeaturedProject[] = [
     slug: "coverage-amplifier",
     name: "Coverage Amplifier",
     tagline: "Turns press coverage into 5 ready-to-post marketing assets, every claim backed by the article",
+    // Draft from the repo README; Himasri to approve.
+    problem:
+      "For pay-on-results PR agencies, a media placement only pays off once it is turned into social posts, sales copy and website badges. That activation was written by hand for every client, and one invented or misattributed quote is a client-trust disaster.",
     stack: ["Next.js", "FastAPI on Google Cloud Run", "Supabase Postgres", "Alembic", "Gemini"],
     bullets: [
       "Built a three-stage extract → generate → verify pipeline that writes only from the article's sentences, so every claim is traceable.",
@@ -45,6 +51,9 @@ export const featuredProjects: FeaturedProject[] = [
     slug: "cardshield",
     name: "CardShield",
     tagline: "Real-time fraud detection service that scores every card transaction",
+    // Draft from the repo README; Himasri to approve.
+    problem:
+      "A payment processor has a few milliseconds to decide whether a card payment is fraud, and a wrong call costs money either way: missed fraud loses the amount, a false alarm blocks a genuine customer. Fixed amount rules are blunt, models decay silently as fraudsters adapt, and analysts need to know why a payment was flagged.",
     stack: ["LightGBM", "MLflow", "FastAPI", "Evidently", "Docker", "GitHub Actions"],
     bullets: [
       "Cut total fraud cost by 65% vs the best amount rule (recall 0.80) by setting the decision threshold by business cost.",
@@ -111,7 +120,9 @@ export const moreProjects: SmallProject[] = [
     name: "Startup Idea Evaluator",
     line: "Three AI agents assess a startup idea: market research, competitors and pitch summary",
     stack: ["CrewAI", "Streamlit", "Hugging Face"],
-    live: "https://startupideaevaluator-sujg5kvghqk7fzkdec7ugu.streamlit.app/",
+    // Live demo hidden while it crashes with a KeyError; restore once fixed:
+    // https://startupideaevaluator-sujg5kvghqk7fzkdec7ugu.streamlit.app/
+    live: null,
     code: "https://github.com/himaallu/StartUpIdeaEvaluator",
     badge: null,
     accent: "pink",

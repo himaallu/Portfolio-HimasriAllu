@@ -131,7 +131,7 @@ function Portrait({ src, name }: { src: string | null; name: string }) {
             src={src}
             alt={`Portrait of ${name}`}
             fill
-            priority
+            loading="eager"
             sizes="(max-width: 1024px) 210px, 420px"
             className="object-cover"
           />

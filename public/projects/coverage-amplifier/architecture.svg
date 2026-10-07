@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" width="1600" height="800" role="img" aria-label="Coverage Amplifier architecture: extract, generate and verify stages grounded in the article's own sentences">
+<title>Coverage Amplifier architecture: extract, generate and verify stages grounded in the article's own sentences</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7A859F"/></marker></defs>
+<rect width="100%" height="100%" fill="#0C1220"/>
+<rect x="40" y="70" width="330" height="118" rx="16" fill="#151B2E" stroke="#8EA8D8" stroke-width="1.5"/>
+<text x="60" y="110" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Article URL or text</text>
+<text x="60" y="138" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">paste mode as fallback</text>
+<rect x="430" y="70" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="450" y="110" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Next.js web app</text>
+<text x="450" y="138" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">intake, kit view, library · Vercel</text>
+<rect x="820" y="70" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="840" y="110" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">FastAPI</text>
+<text x="840" y="138" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">Google Cloud Run</text>
+<text x="840" y="161" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">202 Accepted + background job</text>
+<rect x="1210" y="70" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="1230" y="110" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Fetch + clean</text>
+<text x="1230" y="138" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">Trafilatura, 24k character cap</text>
+<rect x="1210" y="330" width="330" height="118" rx="16" fill="#2A2618" stroke="#CFB37F" stroke-width="1.5"/>
+<text x="1522" y="358" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#CFB37F">LLM</text>
+<text x="1230" y="370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">1 · Extract</text>
+<text x="1230" y="398" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">temp 0 · 8–20 verbatim sentences</text>
+<text x="1230" y="421" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">substring integrity check</text>
+<rect x="820" y="330" width="330" height="118" rx="16" fill="#2A2618" stroke="#CFB37F" stroke-width="1.5"/>
+<text x="1132" y="358" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#CFB37F">LLM</text>
+<text x="840" y="370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">2 · Generate</text>
+<text x="840" y="398" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">temp 0.4 · source sentences only</text>
+<text x="840" y="421" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">5 assets</text>
+<rect x="430" y="330" width="330" height="118" rx="16" fill="#2A2618" stroke="#CFB37F" stroke-width="1.5"/>
+<text x="742" y="358" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#CFB37F">LLM</text>
+<text x="450" y="370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">3 · Verify</text>
+<text x="450" y="398" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">programmatic checks (ids, numbers)</text>
+<text x="450" y="421" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">+ LLM claim verifier</text>
+<rect x="40" y="330" width="330" height="118" rx="16" fill="#151B2E" stroke="#8EA8D8" stroke-width="1.5"/>
+<text x="60" y="370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Clean copy export</text>
+<text x="60" y="398" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">no citation markers in the text</text>
+<rect x="820" y="590" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="840" y="630" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Gemini</text>
+<text x="840" y="658" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">behind a swappable LLMClient</text>
+<rect x="430" y="590" width="330" height="118" rx="16" fill="#0F1A1F" stroke="#8CBFA8" stroke-width="1.5"/>
+<text x="742" y="618" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#8CBFA8">DATA</text>
+<text x="450" y="630" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">Supabase Postgres</text>
+<text x="450" y="658" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">kits, assets, claims,</text>
+<text x="450" y="681" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">verification runs, LLM calls</text>
+<rect x="1210" y="590" width="330" height="118" rx="16" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="1230" y="630" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#F4F6FB">CI eval harness</text>
+<text x="1230" y="658" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#A7B0C4">seeded hallucinations: 3/3 types caught</text>
+<path d="M 370 129 L 430 129" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 760 129 L 820 129" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1150 129 L 1210 129" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1375 188 L 1375 330" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 1210 389 L 1150 389" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 820 389 L 760 389" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 430 389 L 370 389" fill="none" stroke="#7A859F" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 985 590 L 985 448" fill="none" stroke="#7A859F" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+<path d="M 595 448 L 595 590" fill="none" stroke="#7A859F" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+<rect x="40" y="746" width="18" height="18" rx="5" fill="#2A2618" stroke="#CFB37F" stroke-width="1.5"/>
+<text x="68" y="760" text-anchor="start" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" letter-spacing="0" fill="#A7B0C4">LLM step</text>
+<rect x="210" y="746" width="18" height="18" rx="5" fill="#111A2E" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+<text x="238" y="760" text-anchor="start" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" letter-spacing="0" fill="#A7B0C4">Plain code</text>
+<rect x="380" y="746" width="18" height="18" rx="5" fill="#0F1A1F" stroke="#8CBFA8" stroke-width="1.5"/>
+<text x="408" y="760" text-anchor="start" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" letter-spacing="0" fill="#A7B0C4">Data store</text>
+</svg>

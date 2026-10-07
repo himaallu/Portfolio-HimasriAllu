@@ -11,6 +11,9 @@ name tile) until you add it. Text lives in `src/content/`; `null` there means "n
 | Education · VIT | Personal line | `education.ts` → `personal` |
 | Journey | Review the wording of the six draft phases (keep the structure) | `journey.ts` |
 | CardShield | Update the code URL if the repo is renamed from `CardSheild` to `CardShield` | `projects.ts` |
+| Case studies | Approve the three "The problem" drafts (written from each repo README) | `projects.ts` → `problem` |
+| Startup Idea Evaluator | Fix the live demo (it crashes with a KeyError), then restore its `live` URL (kept in a comment) | `projects.ts` |
+| Resume PDF | Cloud Practitioner says Jun 2024 (site: Jan 2024); "AI engineering student" vs "AI engineer"; contains your phone number | `public/resumes/HimasriAllu_Resume.pdf` |
 
 The site shows two selected papers (the IEEE IConSCEPT-2024 paper and the IRJAEH article). Their
 one-line summaries were written from the paper title and the IRJAEH abstract; check they read right.
@@ -27,10 +30,7 @@ Credly badge URLs.
 | `public/photos/hackathon-vit/` | More Yantra Hackathon photos (one is in) | One photo shown |
 | `public/photos/community/designathon/` | *Optional* Designathon photos | Event card shows text only |
 | `public/photos/community/innoverse/` | More InnoVerse Hackathon photos (one is in) | One photo shown |
-| `public/projects/workflow-ai/cover.jpg` | WorkFlow-AI screenshot (no live demo or repo images to capture) | Name tile |
-| `public/projects/foreveryoung/cover.jpg` | ForeverYoung screenshot | Name tile |
-| `public/projects/startup-idea-evaluator/cover.jpg` | Startup Idea Evaluator screenshot (the live demo currently crashes with a KeyError) | Name tile |
-| `public/projects/<slug>/architecture.png` | Architecture diagrams for Haqqi, Coverage Amplifier, CardShield | Name tile |
+| `public/projects/startup-idea-evaluator/cover.jpg` | Startup Idea Evaluator screenshot, once the live demo is fixed | Name tile |
 | `public/photos/research/` | Best Paper Award photo or certificate | Hidden |
 | `public/logos/uowd.(svg\|png)` | UOWD logo (square, on its own background) | "UOWD" in text |
 | `public/logos/vit.(svg\|png)` | VIT logo | "VIT" in text |
@@ -53,6 +53,8 @@ Any image format works (`.jpg`, `.png`, `.webp`, `.avif`, `.svg`). Galleries are
 Captions are also the alt text, so write them for someone who can't see the photo.
 
 ## Deployment
+
+- [ ] In Vercel, open the project → **Analytics** → **Enable** (the code is already in the site)
 
 - [ ] Import the repo into Vercel and deploy
 - [ ] Add `himasriallu.com` and `www.himasriallu.com` to the Vercel project, then update the `@` A record and `www` CNAME in GoDaddy DNS (see README)

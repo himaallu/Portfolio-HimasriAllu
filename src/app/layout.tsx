@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { Providers } from "@/components/Providers";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { identity, seo } from "@/content";
@@ -58,6 +59,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <Footer />
         </Providers>
+        {/* Counts visits once Web Analytics is enabled for the project in Vercel; inert elsewhere. */}
+        <Analytics />
       </body>
     </html>
   );

@@ -59,6 +59,8 @@ export type FeaturedProject = {
   slug: string;
   name: string;
   tagline: string;
+  /** Two or three sentences for the case-study "The problem" block. Falls back to the tagline. */
+  problem: string | null;
   stack: string[];
   bullets: string[];
   badge: string | null;
