@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { journey } from "@/content";
 import type { JourneyPhase } from "@/content/types";
 import { accentVar } from "@/lib/accent";
-import { cn } from "@/lib/cn";
+import { cn, isExternal } from "@/lib/cn";
 import { GlowCard } from "../GlowCard";
 import { phaseIcons } from "../Icons";
 import { Reveal } from "../Reveal";
@@ -84,6 +84,7 @@ function Phase({ phase, index }: { phase: JourneyPhase; index: number }) {
                     <li key={b.label}>
                       <Link
                         href={b.href}
+                        {...(isExternal(b.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         className="group/link inline-flex items-start gap-1 text-[0.9375rem] text-primary underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] decoration-1 underline-offset-4 transition-colors hover:decoration-[var(--accent)]"
                       >
                         {b.label}

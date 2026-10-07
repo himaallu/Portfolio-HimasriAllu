@@ -59,6 +59,8 @@ export type FeaturedProject = {
   slug: string;
   name: string;
   tagline: string;
+  /** Two or three sentences for the case-study "The problem" block. Falls back to the tagline. */
+  problem: string | null;
   stack: string[];
   bullets: string[];
   badge: string | null;
@@ -103,13 +105,22 @@ export type Hackathon = {
   accent: Accent;
 };
 
+export type CommunityEvent = {
+  name: string;
+  description: string | null;
+  /** Folder under public/ whose images become this event's gallery. */
+  photos: string;
+  /** Focal point kept in view when a tile crops the photo (CSS object-position). Default "center". */
+  photoPosition?: string;
+};
+
 export type Community = {
   name: string;
   role: string;
   dates: string;
   bullets: string[];
   stats: Metric[];
-  photos: string;
+  events: CommunityEvent[];
 };
 
 export type Certification = {

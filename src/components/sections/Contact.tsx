@@ -45,12 +45,12 @@ export function Contact({ resumes }: { resumes: Resume[] }) {
             </ul>
             {resumes.length > 0 && (
               <Reveal delay={0.15} className="mt-8">
-                <p className="font-label mb-3 !text-[0.625rem] text-muted">Resume downloads</p>
+                <p className="font-label mb-3 !text-[0.625rem] text-muted">{resumes.length > 1 ? "Resume downloads" : "Resume"}</p>
                 <ul className="flex flex-wrap gap-2">
                   {resumes.map((r) => (
                     <li key={r.file}>
                       <a href={r.file} download className="inline-flex items-center gap-2 rounded-pill border border-line-strong bg-base/50 px-4 py-2 text-[0.875rem] text-secondary transition-colors hover:border-white/30 hover:text-primary">
-                        {r.label} <span className="font-mono text-[0.6875rem] text-muted">PDF</span>
+                        {resumes.length > 1 ? r.label : "Download resume"} <span className="font-mono text-[0.6875rem] text-muted">PDF</span>
                       </a>
                     </li>
                   ))}

@@ -1,58 +1,44 @@
 import Image from "next/image";
 import { GraduationCap } from "lucide-react";
-import { about, education, identity } from "@/content";
+import { about, education } from "@/content";
 import type { Education } from "@/content/types";
 import { findImage, listImages, type GalleryImage } from "@/lib/assets";
 import { accentVar } from "@/lib/accent";
 import { Gallery } from "../Gallery";
 import { GlowCard } from "../GlowCard";
-import { NameTile } from "../NameTile";
 import { Reveal } from "../Reveal";
 import { SectionHeader } from "../SectionHeader";
 
 export function About() {
   const galleries = Object.fromEntries(education.map((e) => [e.id, listImages(e.photos, e.short)]));
-  const photo =
-    findImage("photos", "about") ??
-    galleries.uowd?.[0]?.src ??
-    galleries.vit?.[0]?.src ??
-    findImage("photos", "portrait");
+  const photo = findImage("photos", "about") ?? galleries.vit?.[0]?.src ?? galleries.uowd?.[0]?.src ?? null;
+  // Chronological: VIT first, then UOWD.
+  const story = [...education].reverse();
 
   return (
     <section id="about" aria-labelledby="about-title" className="section-gap">
       <div className="container-content">
-        <SectionHeader id="about-title" number="01" label="About" title="Language from the model. Answers from code." />
+        <SectionHeader id="about-title" number="01" label="About" title={about.title} />
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-          <Reveal className="group relative aspect-[4/3] overflow-hidden rounded-card border border-line lg:aspect-auto lg:min-h-[340px]">
-            {photo ? (
-              <>
-                <Image src={photo} alt={`${identity.name}`} fill sizes="(max-width: 1024px) 100vw, 480px" className="photo object-cover" />
-                <div aria-hidden className="photo-overlay absolute inset-0" />
-              </>
-            ) : (
-              <NameTile name={identity.name} size="lg" />
-            )}
-          </Reveal>
+        <div className={photo ? "grid items-center gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14" : ""}>
+          {photo && (
+            <Reveal className="group relative aspect-[4/5] overflow-hidden rounded-card border border-line sm:aspect-[4/3] lg:aspect-[4/5]">
+              <Image src={photo} alt={about.photoAlt} fill sizes="(max-width: 1024px) 100vw, 480px" className="photo object-cover object-top" />
+              <div aria-hidden className="photo-overlay absolute inset-0" />
+            </Reveal>
+          )}
 
-          <Reveal delay={0.1} className="flex flex-col justify-center">
-            {about.bio.map((p, i) => (
-              <p key={i} className={i === 0 ? "font-display text-[1.5rem] font-medium leading-snug tracking-display text-primary md:text-[1.75rem]" : "mt-5 max-w-prose text-secondary"}>
-                {p}
-              </p>
+          <Reveal delay={0.1} className="space-y-6">
+            {story.map((e, i) => (
+              <div key={e.id}>
+                <p className="font-label mb-2 !text-[0.6875rem]" style={{ ...accentVar(e.accent), color: "var(--accent)" }}>
+                  {e.short} · {e.dates}
+                </p>
+                <p className={i === 0 ? "max-w-prose font-display text-[1.25rem] leading-snug tracking-display text-primary md:text-[1.5rem]" : "max-w-prose text-lg text-secondary"}>
+                  {e.about}
+                </p>
+              </div>
             ))}
-            <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-line bg-line sm:grid-cols-3">
-              {[
-                { k: "Based in", v: identity.location },
-                { k: "Studying", v: "Master of Applied AI, UOWD" },
-                { k: "B.Tech CSE", v: "VIT · CGPA 8.31" },
-              ].map((d) => (
-                <div key={d.k} className="bg-raised px-4 py-4 last:col-span-2 sm:last:col-span-1">
-                  <dt className="font-label !text-[0.625rem] text-muted">{d.k}</dt>
-                  <dd className="mt-1 text-[0.9375rem] text-primary">{d.v}</dd>
-                </div>
-              ))}
-            </dl>
           </Reveal>
         </div>
 
@@ -93,8 +79,7 @@ function EducationCard({ edu, logo, photos }: { edu: Education; logo: string | n
           </p>
         </div>
       </div>
-      <p className="mt-5 text-[0.9375rem] leading-relaxed text-secondary">{edu.about}</p>
-      {edu.personal && <p className="mt-3 text-[0.9375rem] italic text-secondary">{edu.personal}</p>}
+      {edu.personal && <p className="mt-5 text-[0.9375rem] italic text-secondary">{edu.personal}</p>}
       {photos.length > 0 && <Gallery images={photos} label={`${edu.short} photos`} className="mt-6" max={4} rowHeight="auto-rows-[80px] sm:auto-rows-[96px]" />}
     </GlowCard>
   );

@@ -5,13 +5,14 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Award } from "lucide-react";
 import { BrowserFrame } from "@/components/BrowserFrame";
 import { Button } from "@/components/Button";
+import { DemoVideo } from "@/components/DemoVideo";
 import { Badge, Chip } from "@/components/Chip";
 import { Gallery } from "@/components/Gallery";
 import { ExternalIcon, GithubIcon } from "@/components/Icons";
 import { NameTile } from "@/components/NameTile";
 import { Reveal } from "@/components/Reveal";
 import { featuredProjects, identity } from "@/content";
-import { findImage, listImages } from "@/lib/assets";
+import { findImage, listImages, publicFileExists } from "@/lib/assets";
 import { accentVar } from "@/lib/accent";
 
 type Params = { slug: string };
@@ -44,7 +45,12 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
   const dir = `projects/${p.slug}`;
   const cover = findImage(dir, "cover");
   const diagram = findImage(dir, "architecture");
-  const screenshots = listImages(dir, `${p.name} screenshot`, ["cover", "architecture"]);
+  const screenshots = listImages(dir, `${p.name} screenshot`, ["cover", "architecture", "demo-poster"]);
+  const demo = publicFileExists(`/${dir}/demo.mp4`) ? `/${dir}/demo.mp4` : null;
+  const demoPoster = findImage(dir, "demo-poster");
+  // Section numbers after the first two depend on which optional blocks are present.
+  let n = 2;
+  const num = () => String(++n).padStart(2, "0");
 
   return (
     <article style={accentVar(p.accent)} className="pb-[var(--section-gap)]">
@@ -90,7 +96,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
       <div className="container-content mt-20 grid gap-16 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="min-w-0 space-y-16">
           <Block n="01" title="The problem">
-            <p className="max-w-prose text-lg text-secondary">{p.tagline}.</p>
+            <p className="max-w-prose text-lg text-secondary">{p.problem ?? `${p.tagline}.`}</p>
           </Block>
 
           <Block n="02" title="What I built">
@@ -103,18 +109,35 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             </ul>
           </Block>
 
-          <Block n="03" title="Architecture">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-line bg-raised">
-              {diagram ? (
-                <Image src={diagram} alt={`${p.name} architecture diagram`} fill sizes="(max-width: 1024px) 100vw, 800px" className="object-contain p-4" loading="lazy" />
-              ) : (
+          {demo && (
+            <Block n={num()} title="Demo">
+              <DemoVideo src={demo} poster={demoPoster} label={`${p.name} demo`} />
+            </Block>
+          )}
+
+          <Block n={num()} title="Architecture">
+            {diagram ? (
+              <figure>
+                <a
+                  href={diagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block aspect-[3/2] overflow-hidden rounded-card border border-line bg-raised"
+                  aria-label={`Open the ${p.name} architecture diagram full size (opens in a new tab)`}
+                >
+                  <Image src={diagram} alt={`${p.name} architecture diagram`} fill sizes="(max-width: 1024px) 100vw, 800px" className="object-contain p-2" loading="lazy" unoptimized />
+                </a>
+                <figcaption className="mt-3 text-[0.875rem] text-muted">Click to open full size.</figcaption>
+              </figure>
+            ) : (
+              <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-line bg-raised">
                 <NameTile name={`${p.name} architecture`} />
-              )}
-            </div>
+              </div>
+            )}
           </Block>
 
           {screenshots.length > 0 && (
-            <Block n="04" title="Screenshots">
+            <Block n={num()} title="Screenshots">
               <Gallery images={screenshots} label={`${p.name} screenshots`} rowHeight="auto-rows-[110px] sm:auto-rows-[150px]" />
             </Block>
           )}
