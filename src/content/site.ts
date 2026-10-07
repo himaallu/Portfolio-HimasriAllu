@@ -19,11 +19,6 @@ export const seo = {
 export const hero: Hero = {
   roles: ["AI Engineer", "AI/ML Engineer", "Full-stack Engineer"],
   summary: seo.description,
-  proofChips: [
-    { icon: "trophy", prefix: "Top 4 of ", value: 400, suffix: "+", label: "n8n Dubai Hackathon" },
-    { icon: "award", prefix: "", value: 4, suffix: "×", label: "published researcher, IEEE Best Paper Award" },
-    { icon: "cloud", prefix: "", value: 2, suffix: "×", label: "AWS certified" },
-  ],
   resumes: [
     { label: "AI Engineer", file: "/resumes/HimasriAllu_Resume_AI.pdf" },
     { label: "AI/ML Engineer", file: "/resumes/HimasriAllu_Resume_AI-ML.pdf" },
